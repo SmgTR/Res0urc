@@ -5,6 +5,9 @@ An app that lets users create, manage, and share collections of links.
 
 The project is based on MERN stack.
 
+Live:
+https://res0urc.herokuapp.com/
+
 
 //* TODO
 1. Sharing logic.
