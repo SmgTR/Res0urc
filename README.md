@@ -12,3 +12,4 @@ https://res0urc.herokuapp.com/
 //* TODO
 1. Sharing logic.
 2. Chrome extension.
+3. RWD
