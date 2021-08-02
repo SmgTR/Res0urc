@@ -1,0 +1,21 @@
+.footer {
+  display: flex;
+  // align-items: center;
+  justify-content: space-around;
+  font-size: 1.8rem;
+  padding: 4rem;
+  background-color: $footer__color;
+
+  & ul {
+    list-style: none;
+  }
+
+  & li {
+    margin: 1rem 0;
+
+    &:hover {
+      color: $highlight;
+      cursor: pointer;
+    }
+  }
+}

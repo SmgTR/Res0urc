@@ -1,0 +1,148 @@
+.active {
+  color: $highlight;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none !important;
+}
+
+.disabled {
+  margin-top: 4rem;
+}
+
+.backArrow {
+  transition: all 0.2s;
+  font-size: 1.2rem;
+  width: max-content;
+  & i {
+    font-size: 2rem;
+    margin-right: 1rem;
+  }
+
+  &:hover {
+    color: $highlight;
+    cursor: pointer;
+  }
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.inputs__default {
+  label {
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+  }
+
+  input {
+    padding: 0.8rem;
+    width: 100%;
+    background-color: $high_dark;
+    color: $font-primary-color;
+    border: none;
+    border-radius: 15px;
+    outline: none;
+  }
+
+  input:not(:first-child) {
+    margin-bottom: 2rem;
+  }
+
+  input:-webkit-autofill {
+    background-color: $high_dark !important;
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  select:-webkit-autofill,
+  select:-webkit-autofill:hover,
+  select:-webkit-autofill:focus {
+    -webkit-text-fill-color: $font-primary-color;
+    -webkit-box-shadow: 0 0 0px 1000px $high_dark inset;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+}
+
+.btn {
+  height: 100%;
+  background-color: $highlight;
+  border: none;
+  padding: 0.8rem;
+  color: $font-primary-color;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.small-btn {
+  margin-left: 1rem;
+}
+
+.long-btn {
+  width: 100%;
+}
+
+.success {
+  color: $success;
+}
+
+.error {
+  color: $error;
+}
+
+.font__medium {
+  font-size: 1.4rem;
+}
+
+.success__border {
+  border: 1px solid $success !important;
+}
+
+.error__border {
+  border: 1px solid $error !important;
+}
+
+.mt-small {
+  margin-top: 2rem;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.notfound {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  & h1 {
+    font-size: 6rem;
+    margin-bottom: 2rem;
+  }
+
+  & p {
+    font-size: 2.4rem;
+  }
+
+  & img {
+    width: 60%;
+    margin-top: 8rem;
+  }
+}
+
+.col__setting__err {
+  font-size: 2rem;
+  position: absolute;
+  top: 10%;
+}

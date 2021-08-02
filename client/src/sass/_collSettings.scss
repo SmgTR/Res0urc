@@ -1,0 +1,16 @@
+.collSettings {
+  margin-top: 2rem;
+}
+
+.change__settings {
+  margin-top: 6rem;
+  width: 600px;
+
+  & input {
+    margin-top: 1.2rem;
+  }
+
+  & label {
+    font-size: 2rem;
+  }
+}

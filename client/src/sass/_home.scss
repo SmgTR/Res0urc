@@ -1,0 +1,100 @@
+.home {
+  padding: 4rem;
+
+  @include respond(phone) {
+    padding: 4rem 1rem;
+  }
+
+  &__top {
+    margin-top: 1.4rem;
+    display: flex;
+    width: 100%;
+    align-items: center;
+
+    @include respond(phone) {
+      flex-direction: column;
+    }
+
+    & h2,
+    i {
+      cursor: pointer;
+    }
+
+    & h1 {
+      font-size: 3.2rem;
+      @include respond(phone) {
+        width: 100%;
+        text-align: center;
+        font-size: 2.4rem;
+        margin-bottom: 2rem;
+      }
+    }
+
+    & h2 {
+      margin-left: 6rem;
+
+      @include respond(phone) {
+        margin: 0;
+        text-align: center;
+      }
+
+      &:not(:last-child) {
+        @include respond(phone) {
+          margin-bottom: 1rem;
+        }
+      }
+
+      & i {
+        font-size: 1.2rem;
+        margin-left: 0.6rem;
+        background-color: $high_dark;
+        padding: 0.6rem;
+        border-radius: 50%;
+      }
+    }
+  }
+}
+.settings {
+  margin-left: 4rem;
+  font-size: 2.2rem;
+}
+
+.background-rounded {
+  background-color: $high_dark;
+  padding: 0.8rem 1.4rem;
+  border-radius: 15px;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+  margin-top: 1.2rem;
+
+  & img {
+    width: 2.2rem;
+    height: 2.2rem;
+    margin-left: 1rem;
+    margin-right: 0.6rem;
+    border-radius: 50%;
+  }
+}
+
+.info {
+  display: flex;
+  font-size: 1.2rem;
+  margin-top: 0.8rem;
+
+  & p:first-child {
+    margin-right: 2.6rem;
+  }
+}
+
+.save {
+  margin-left: auto;
+
+  & i {
+    font-size: 2rem;
+    margin-left: 1rem;
+  }
+}
