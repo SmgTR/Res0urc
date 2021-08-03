@@ -26,7 +26,7 @@ const NavHome = ({
   const data = (
     <p onClick={filter} className={active ? 'active' : ''}>
       {text}
-      <i className={icon}></i>
+      <i className={icon + ' active__icon'}></i>
     </p>
   );
 

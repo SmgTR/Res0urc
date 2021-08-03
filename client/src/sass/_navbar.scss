@@ -5,6 +5,10 @@
   width: 100%;
   padding: 6rem 4rem;
 
+  @include respond(tab-land) {
+    padding: 6rem 2rem;
+  }
+
   @include respond(phone) {
     justify-content: center;
     padding: 2rem 0;
@@ -52,9 +56,22 @@
       height: 32px;
       border-radius: 10px;
       padding-left: 0.8rem;
+      margin-left: 1rem;
 
+      @include respond(big-desktop) {
+        margin: 0;
+      }
+
+      @include respond(tab-port) {
+        width: 200px;
+      }
+
+      @include respond(tab-land) {
+        margin-left: 4rem;
+      }
       @include respond(phone) {
         width: 200px;
+        margin: 0;
       }
     }
 
@@ -126,6 +143,11 @@
   border-radius: 15px;
   margin-top: 0.4rem;
   font-size: 1.4rem;
+  z-index: 1100;
+
+  @include respond(tab-land) {
+    left: -50%;
+  }
 
   & .flex:hover {
     color: $highlight;

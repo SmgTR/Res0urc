@@ -5,9 +5,20 @@
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   grid-gap: 2rem;
 
+  @include respond(tab-land) {
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-gap: 5rem;
+  }
+  @include respond(tab-port) {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    column-gap: 0;
+    row-gap: 2rem;
+  }
+
   @include respond(phone) {
     column-gap: 0;
     row-gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   }
 }
 
@@ -20,6 +31,14 @@
   position: relative;
 
   overflow: hidden;
+
+  @include respond(tab-port) {
+    width: 300px;
+  }
+
+  @include respond(phone) {
+    margin: 0 auto;
+  }
 
   &:hover {
     border: 2px solid $highlight-light;
@@ -44,6 +63,9 @@
     background-color: $highlight;
     cursor: pointer;
     text-decoration: none;
+    overflow: hidden;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
 
     &:visited,
     :active,
@@ -57,6 +79,10 @@
   &__text {
     padding: 2rem;
     width: 100%;
+
+    @include respond(phone) {
+      padding: 1rem;
+    }
 
     &-collection {
       & p {
@@ -73,6 +99,11 @@
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
+
+      @include respond(phone) {
+        margin-bottom: 0.4rem;
+        width: 250px;
+      }
     }
 
     & p {
@@ -84,6 +115,10 @@
       text-overflow: ellipsis;
       max-height: 80px;
       overflow: hidden;
+
+      @include respond(phone) {
+        height: max-content;
+      }
     }
   }
 
@@ -92,8 +127,7 @@
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     width: 100%;
-    height: 180px;
-    object-fit: fill;
+    height: 200px;
   }
 }
 
@@ -167,6 +201,10 @@
   min-height: 90%;
   position: relative;
 
+  @include respond(tab-port) {
+    padding: 4rem 1rem 8rem 1rem;
+  }
+
   @include respond(phone) {
     margin-top: 2rem;
     padding: 0;
@@ -177,6 +215,10 @@
   &-item {
     box-shadow: 15px -15px $background-secondary;
     cursor: pointer;
+
+    @include respond(phone) {
+      box-shadow: 0px -8px $background-secondary;
+    }
   }
 }
 
@@ -184,7 +226,6 @@
   width: 100%;
   justify-self: flex-end;
   text-align: right;
-  margin-top: 1rem !important;
 }
 
 .pages {
@@ -199,7 +240,7 @@
 
   @include respond(phone) {
     position: relative;
-    order: -1;
+
     font-size: 1.8rem;
     margin-top: 0;
     padding: 4rem 0;

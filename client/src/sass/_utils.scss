@@ -146,3 +146,21 @@
   position: absolute;
   top: 10%;
 }
+
+.small__menu {
+  cursor: pointer;
+
+  & > div {
+    margin-top: 0.4rem;
+    transition: all 0.2s;
+  }
+  &:hover > * {
+    background-color: $highlight;
+  }
+
+  &-item {
+    width: 25px;
+    height: 1px;
+    background-color: $font-primary-color;
+  }
+}

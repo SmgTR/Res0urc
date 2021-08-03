@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, Fragment, useState } from 'react';
+import ReactDOM from 'react-dom';
 
 import ResContext from '../context/resources/resContext';
 import UsersContext from '../context/users/usersContext';
@@ -55,7 +56,11 @@ const Home = () => {
     infoMsg,
   } = resContext;
 
-  if (search) return <Search resources={resContext} />;
+  if (search)
+    return ReactDOM.createPortal(
+      <Search resources={resContext} />,
+      document.getElementById('backdrop-root')
+    );
 
   if (userSettings) return <UserSettings user={user.data.data} />;
 

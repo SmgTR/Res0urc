@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import ReactDOM from 'react-dom';
 import Logo from '../Nav/Logo';
 import WelcomeNav from '../Welcome/WelcomeNav';
 import WelcomeHero from '../Welcome/WelcomeHero';
@@ -17,7 +18,12 @@ const HomeWelcome = () => {
   const { loginUser, feedbackMsg } = usersContext;
   return (
     <div className='homeWelcome'>
-      {register ? <WelcomeRegisterForm setRegister={setRegister} /> : null}
+      {register
+        ? ReactDOM.createPortal(
+            <WelcomeRegisterForm setRegister={setRegister} />,
+            document.getElementById('backdrop-root')
+          )
+        : null}
 
       <header className='header'>
         <Logo />

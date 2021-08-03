@@ -71,8 +71,6 @@ const UsersState = (props) => {
   const loginUser = async (formData) => {
     try {
       const data = {
-        // email: 'afsaffssfaw@ko.pl',
-        // email: 'bookmark@work.pl',
         email: formData.email,
         password: formData.password,
       };
@@ -84,8 +82,7 @@ const UsersState = (props) => {
       window.location.replace('/login');
     } catch (err) {
       const error = err.response.data;
-
-      setErrorMsg(error.error ? 'Incorrect email or password' : '');
+      setErrorMsg('Incorrect email or password');
     }
   };
 

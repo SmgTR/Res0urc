@@ -36,6 +36,35 @@ const Nav = () => {
   }, []);
 
   useEffect(() => {
+    //manage menu on smaller devices
+
+    document.addEventListener('click', (e) => {
+      const list = e.target;
+      console.log(e.target);
+      const nav = document.querySelector('.nav');
+      const close = document.querySelector('.small__close');
+      const mobileMenu = document.querySelector('.mobile__menu');
+      if (nav) {
+        if (
+          list.classList.contains('small__close') ||
+          list.classList.contains('active') ||
+          list.classList.contains('active__icon')
+        ) {
+          nav.classList.remove('small__show');
+          close.style.display = 'none';
+        }
+
+        if (
+          list.classList.contains('small__menu') ||
+          list.classList.contains('small__menu-item') ||
+          list.classList.contains('mobile__menu')
+        ) {
+          nav.classList.add('small__show');
+          close.style.display = 'block';
+        }
+      }
+    });
+
     getAllRes();
     displaySettings(false);
     showAddCollection(false);
@@ -61,7 +90,7 @@ const Nav = () => {
   return (
     <nav className='nav'>
       <h1>Home</h1>
-
+      <h1 className='small__close'>x</h1>
       <NavHome
         name={'popular'}
         click={showFilter}
