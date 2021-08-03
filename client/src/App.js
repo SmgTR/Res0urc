@@ -7,11 +7,12 @@ import Navbar from './components/layout/Nav/Navbar';
 import Nav from './components/layout/Nav/Nav';
 import UsersState from './components/context/users/UsersState';
 import ResState from './components/context/resources/ResState';
-import Search from './components/layout/Home/Search';
+
 import NotFound from './components/utils/NotFound';
 import Footer from './components/layout/Footer/Footer';
 import HomeWelcome from './components/layout/Home/HomeWelcome';
 import Slide from './components/layout/tutorial/Slide';
+import MenuToogle from './components/layout/Nav/MenuToogle';
 
 function App() {
   const user = localStorage.getItem('token');
@@ -37,6 +38,7 @@ function App() {
                 <Fragment>
                   <Navbar />
                   <div className='container'>
+                    <MenuToogle />
                     <Nav />
 
                     <div className='content'>
