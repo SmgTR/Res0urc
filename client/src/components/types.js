@@ -24,3 +24,6 @@ export const SUCCESS_MSG = 'SUCCESS_MSG';
 export const SHOW__ADD_COLLECTION = 'SHOW__ADD_COLLECTION';
 export const COL_SET = 'COL_SET';
 export const INFO_MSG = 'INFO_MSG';
+export const SELECTED_OPTIONS = 'SELECTED_OPTIONS';
+export const CLEAR_SELECT = 'CLEAR_SELECT';
+export const UPDATE_ITEM = 'UPDATE_ITEM';

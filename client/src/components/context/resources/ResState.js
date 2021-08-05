@@ -10,6 +10,7 @@ import {
   GET_LINK_INFO,
   GET_ALL_PUBLIC,
   CLEAR_CURRENT,
+  CLEAR_SELECT,
   SET_POPULAR,
   SET_NEW,
   SET_BOOKMARKS,
@@ -24,6 +25,8 @@ import {
   SET_PREVIEW,
   COL_SET,
   INFO_MSG,
+  SELECTED_OPTIONS,
+  UPDATE_ITEM,
 } from '../../types';
 import axios from 'axios';
 import { check } from 'prettier';
@@ -41,6 +44,8 @@ const ResState = (props) => {
     showLinks: true,
     preview: defaultCover,
     selected: [],
+    updateLink: false,
+    selectedOptions: false,
     showCollectionSettings: false,
     infoMsg: { msg: false, text: '' },
     filter: {
@@ -78,9 +83,13 @@ const ResState = (props) => {
     }
   };
 
-  const addListItem = async (links) => {
+  const addListItem = async (links, updated) => {
     try {
-      const data = state.current[0].links;
+      let data = state.current[0].links;
+
+      if (updated) {
+        data = updated;
+      }
 
       data.push(links);
 
@@ -88,10 +97,16 @@ const ResState = (props) => {
         links: data,
       });
 
+      getOnePublic(state.current[0]._id);
+
       setPreview(defaultCover);
     } catch (err) {
       console.log(err.response.data);
     }
+  };
+
+  const setUpdateListItem = (show) => {
+    dispatch({ type: UPDATE_ITEM, payload: show });
   };
 
   const updateCollection = async (data) => {
@@ -108,6 +123,20 @@ const ResState = (props) => {
       const element = [res.data.data.data];
       setCurrent(element);
     } catch (err) {}
+  };
+
+  const deleteCollection = async (id) => {
+    try {
+      const res = await axios.delete(
+        `/api/v1/resources/${state.current[0]._id}`
+      );
+
+      getResources();
+      getAllRes();
+      setCurrent(null);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const addToBookmarkCount = async (id, userId) => {
@@ -189,6 +218,8 @@ const ResState = (props) => {
     collectionSettings(false);
     clearAllFilters();
     hideBookmarks();
+    clearSelected();
+    setUpdateListItem(false);
     hideSearchFor();
     dispatch({ type: SET_CURRENT, payload: res });
   };
@@ -219,6 +250,7 @@ const ResState = (props) => {
   const showFilter = (filter, sort) => {
     clearCurrent();
     clearAllFilters();
+    setUpdateListItem(false);
     // hideBookmarks();
     if (filter === 'popular') {
       hideBookmarks();
@@ -270,6 +302,7 @@ const ResState = (props) => {
   const addSelect = (item) => {
     state.selected.push({ id: item.id, url: item.url });
     console.log(state.selected);
+    showSelectedOptions();
   };
 
   const removeSelect = (item) => {
@@ -279,7 +312,23 @@ const ResState = (props) => {
     });
 
     state.selected = [...arr];
-    console.log(state.selected, 'removed');
+    showSelectedOptions();
+  };
+
+  const clearSelected = () => {
+    if (state.selected.length > 0) {
+      state.selected = [];
+      console.log(state.selected);
+    }
+    dispatch({ type: CLEAR_SELECT });
+  };
+
+  const showSelectedOptions = () => {
+    if (state.selected.length == 1) {
+      dispatch({ type: SELECTED_OPTIONS, payload: true });
+    } else {
+      dispatch({ type: SELECTED_OPTIONS, payload: false });
+    }
   };
 
   const openSelected = () => {
@@ -326,7 +375,9 @@ const ResState = (props) => {
         infoMsg: state.infoMsg,
         preview: state.preview,
         selected: state.selected,
+        selectedOptions: state.selectedOptions,
         showCollectionSettings: state.showCollectionSettings,
+        updateLink: state.updateLink,
         setShowLinks,
         getResources,
         setCurrent,
@@ -352,7 +403,11 @@ const ResState = (props) => {
         openAll,
         collectionSettings,
         updateCollection,
+        deleteCollection,
         setInfoMsg,
+        showSelectedOptions,
+        clearSelected,
+        setUpdateListItem,
       }}
     >
       {props.children}

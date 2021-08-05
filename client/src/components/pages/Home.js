@@ -15,6 +15,7 @@ import RoundButton from '../layout/Home/RoundButton';
 import UserSettings from '../User/UserSettings';
 import CollectionSettings from '../res/CollectionSettings';
 import slideOne from '../layout/tutorial/Slide';
+import LinkEditDelete from '../res/LinkEditDelete';
 
 import BackArrow from '../utils/BackArrow';
 
@@ -48,13 +49,26 @@ const Home = () => {
     removeSelect,
     openSelected,
     selected,
+    selectedOptions,
+    showSelectedOptions,
     openAll,
     collectionSettings,
     showCollectionSettings,
     clearAllFilters,
     setInfoMsg,
     infoMsg,
+    clearSelected,
+    setUpdateListItem,
   } = resContext;
+
+  useEffect(() => {
+    if (selected.length < 1) {
+      showSelectedOptions();
+    }
+    return () => {
+      clearSelected();
+    };
+  }, [showLinks, current]);
 
   if (search)
     return ReactDOM.createPortal(
@@ -90,6 +104,8 @@ const Home = () => {
     collectionSettings(false);
     setIsSaved(false);
     clearCurrent();
+    clearSelected();
+    setUpdateListItem(false);
   };
 
   const addBookmark = () => {
@@ -127,13 +143,26 @@ const Home = () => {
       <div className='home__top'>
         <h1>{name}</h1>
         {ifAuthor ? (
-          <h2 onClick={addListItemForm}>
+          <h2
+            onClick={() => {
+              addListItemForm();
+              setUpdateListItem(false);
+            }}
+          >
             Add Item <i className='fas fa-plus' />
           </h2>
         ) : null}
         <h2 className={current[0].public ? 'show' : 'hide'}>
           Share <i className='fas fa-share ' />
         </h2>
+
+        <div className='edit__link'>
+          {selectedOptions ? (
+            <LinkEditDelete add={addListItemForm} edit={setUpdateListItem} />
+          ) : (
+            ''
+          )}
+        </div>
 
         <RoundButton text='New session' openSelected={openAll} />
         <RoundButton
@@ -173,7 +202,7 @@ const Home = () => {
           <BackArrow click={setShowLinks}>
             <h1>Collection</h1>
           </BackArrow>
-          <AddItemList show={showLinks} back={addListItemForm} />
+          <AddItemList back={addListItemForm} />
         </div>
       )}
     </div>

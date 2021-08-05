@@ -10,6 +10,7 @@ import {
   SET_SORT,
   GET_ALL_PUBLIC,
   CLEAR_ALL_FILTERS,
+  CLEAR_SELECT,
   GET_BOOKMARKS,
   HIDE_BOOKMARKS,
   SHOW_SEARCH,
@@ -20,6 +21,8 @@ import {
   COL_SET,
   INFO_MSG,
   HIDE_MSG,
+  SELECTED_OPTIONS,
+  UPDATE_ITEM,
 } from '../../types';
 
 export default (state, action) => {
@@ -145,6 +148,21 @@ export default (state, action) => {
       return {
         ...state,
         infoMsg: { err: false, text: '' },
+      };
+    case SELECTED_OPTIONS:
+      return {
+        ...state,
+        selectedOptions: action.payload,
+      };
+    case CLEAR_SELECT:
+      return {
+        ...state,
+        selected: [],
+      };
+    case UPDATE_ITEM:
+      return {
+        ...state,
+        updateLink: action.payload,
       };
   }
 };

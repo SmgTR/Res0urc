@@ -99,6 +99,17 @@
   color: $error;
 }
 
+.error__btn {
+  background-color: $error;
+  width: 100%;
+  padding: 0.4rem 0;
+
+  border: none;
+  border-radius: 15px;
+  color: $font-primary-color;
+  cursor: pointer;
+}
+
 .font__medium {
   font-size: 1.4rem;
 }

@@ -40,10 +40,10 @@ const Nav = () => {
 
     document.addEventListener('click', (e) => {
       const list = e.target;
-      console.log(e.target);
+
       const nav = document.querySelector('.nav');
       const close = document.querySelector('.small__close');
-      const mobileMenu = document.querySelector('.mobile__menu');
+
       if (nav) {
         if (
           list.classList.contains('small__close') ||

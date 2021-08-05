@@ -69,6 +69,11 @@
 .settings {
   margin-left: 4rem;
   font-size: 2.2rem;
+  transition: color 0.4s;
+
+  &:hover {
+    color: $highlight;
+  }
 
   @include respond(tab-port) {
     margin-left: 0;
@@ -127,5 +132,30 @@
   & i {
     font-size: 2rem;
     margin-left: 1rem;
+  }
+}
+
+.edit__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  & p {
+    margin-left: 1rem;
+  }
+}
+.selected__options {
+  font-size: 1.6rem;
+  margin-left: 2rem;
+
+  & i {
+    margin-right: 0.8rem;
+  }
+
+  &:hover {
+    color: $highlight;
+  }
+  &:first-of-type {
+    margin-left: 4rem;
   }
 }

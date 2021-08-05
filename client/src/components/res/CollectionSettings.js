@@ -1,8 +1,12 @@
 import React, { useContext, useState } from 'react';
+import ReactDOM from 'react-dom';
+
 import BackArrow from '../utils/BackArrow';
 import ResContext from '../context/resources/resContext';
 import checkImage from '../utils/checkImage';
 import defaultCover from '../../assets/defaultCover.png';
+import deleteCollectionHandler from './DeleteConfirmation';
+import DeleteCollectionConfirmation from './DeleteConfirmation';
 
 const CollectionSettings = () => {
   const resContext = useContext(ResContext);
@@ -14,6 +18,7 @@ const CollectionSettings = () => {
     updateCollection,
     infoMsg,
     setInfoMsg,
+    deleteCollection,
   } = resContext;
 
   const [collection, setCollection] = useState({
@@ -22,6 +27,9 @@ const CollectionSettings = () => {
     cover: '',
     public: false,
   });
+
+  const [confirm, setConfirm] = useState(false);
+
   const onChange = (e) => {
     if (e.target.name === 'cover') {
       checkImage(e.target.value, (exists) => {
@@ -76,6 +84,11 @@ const CollectionSettings = () => {
     });
   };
 
+  const deleteCollectionHandler = (e) => {
+    setConfirm(true);
+    e.preventDefault();
+  };
+
   return (
     <div className='collections collSettings'>
       <BackArrow click={() => collectionSettings(false)}>
@@ -118,6 +131,20 @@ const CollectionSettings = () => {
           />
           <img src={preview} className='preview' />
           <button className='add mt-small'>Update</button>
+          <button
+            className='mt-small error__btn'
+            onClick={deleteCollectionHandler}
+          >
+            Delete
+          </button>
+          {confirm &&
+            ReactDOM.createPortal(
+              <DeleteCollectionConfirmation
+                deleteItem={deleteCollection}
+                setConfirm={setConfirm}
+              />,
+              document.getElementById('confirm-root')
+            )}
         </form>
       </div>
     </div>
