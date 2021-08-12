@@ -11,5 +11,6 @@ https://res0urc.herokuapp.com/
 
 //* TODO
 1. Sharing logic.
-2. Chrome extension.
-3. RWD
+2. Chrome extension(login works)
+4. RWD
+5. React code refactor && bugs fix.
