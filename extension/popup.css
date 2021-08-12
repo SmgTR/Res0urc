@@ -1,0 +1,22 @@
+:root {
+  --theme: #0078a8;
+  --font: #efdcdc;
+}
+
+body {
+  background-color: #413e3e;
+  padding: 2rem 1rem;
+}
+
+.add__form {
+  width: 100%;
+  display: flex;
+}
+
+.btn {
+  background-color: var(--theme);
+  color: var(--font);
+  margin-left: 1rem;
+  border: none;
+  cursor: pointer;
+}

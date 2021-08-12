@@ -1,0 +1,19 @@
+{
+  "name": "ResourC",
+  "description": "Resourc extension, manage links.",
+  "version": "1.0",
+  "manifest_version": 3,
+  "permissions": ["storage", "tabs"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "/images/resourc.png",
+      "32": "/images/resourc.png",
+      "48": "/images/resourc.png",
+      "250": "/images/resourc.png"
+    }
+  },
+  "chrome_url_overrides": {
+    "newtab": "./chrome-extension/build/index.html"
+  }
+}
