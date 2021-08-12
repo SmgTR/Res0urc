@@ -1,0 +1,20 @@
+:root {
+  --theme: #0078a8;
+}
+
+$background-primary: #413e3e;
+$background-secondary: #5a5555;
+$background-th: #4b4b4b;
+$background-nav: #3a4144;
+
+$high_dark: #3e4140;
+$highlight: var(--theme) !important;
+
+$highlight-light: lighten(rgba(#0078a8, 0.4), 40%);
+
+$font-primary-color: #efdcdc;
+
+$footer__color: rgba(26, 33, 40, 1);
+
+$success: green;
+$error: #ff4949;
