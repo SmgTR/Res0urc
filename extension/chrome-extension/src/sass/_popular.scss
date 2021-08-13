@@ -1,0 +1,14 @@
+.popular {
+  margin-top: 4rem;
+  padding: 2rem 4rem;
+}
+
+.res__grid {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 4rem;
+  margin-top: 4rem;
+  list-style: none;
+  height: 250px;
+}

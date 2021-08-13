@@ -1,8 +1,9 @@
-import React, { useState, useEffect, Fragment } from 'react';
+import React, { useState, useEffect } from 'react';
 import './sass/main.scss';
 import UserState from './components/context/users/UserState';
 import LogIn from './components/layout/LogIn';
 import LoggedScreen from './components/layout/LoggedScreen';
+import ResState from './components/context/resources/ResState';
 
 function App() {
   const [user, setLoginUser] = useState(true);
@@ -19,13 +20,15 @@ function App() {
 
   return (
     <UserState>
-      {!user && (
-        <div className='no-user'>
-          <h1>Log in to start using our extension.</h1>
-          <LogIn />
-        </div>
-      )}
-      {user && <LoggedScreen />}
+      <ResState>
+        {!user && (
+          <div className='no-user'>
+            <h1>Log in to start using our extension.</h1>
+            <LogIn />
+          </div>
+        )}
+        {user && <LoggedScreen />}
+      </ResState>
     </UserState>
   );
 }

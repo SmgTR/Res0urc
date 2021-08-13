@@ -8,7 +8,7 @@ const Header = () => {
 
   useEffect(() => {
     getUser();
-  }, []);
+  }, [user, getUser]);
 
   return (
     <nav className='nav__bar'>

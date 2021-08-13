@@ -6,7 +6,7 @@ import UserContext from '../context/users/userContext';
 const LogIn = () => {
   const userContext = useContext(UserContext);
 
-  const { loginUser, user, setMsg } = userContext;
+  const { loginUser, setMsg } = userContext;
 
   const [loginData, setLoginData] = useState({
     email: '',
@@ -34,6 +34,7 @@ const LogIn = () => {
               type: 'text',
               placeholder: 'Email',
               name: 'email',
+              required: true,
             }}
             onChange={userDataHandler}
           />
@@ -43,12 +44,17 @@ const LogIn = () => {
               type: 'password',
               placeholder: 'Password',
               name: 'password',
+              required: true,
             }}
             onChange={userDataHandler}
           />
-          <Button text='Log in' />
+          <Button stylingClass='button-y-animation' text='Log in' />
         </form>
       </div>
+      <h3 className='create__account'>
+        No account yet? Please start{' '}
+        <a href='https://res0urc.herokuapp.com/#'>here</a>
+      </h3>
     </Fragment>
   );
 };

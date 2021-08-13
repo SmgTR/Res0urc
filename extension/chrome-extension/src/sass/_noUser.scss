@@ -56,3 +56,21 @@
     margin-top: 2rem;
   }
 }
+
+.create__account {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 1.4rem;
+  font-weight: lighter;
+
+  & a,
+  a:visited,
+  a:link {
+    color: $font-primary-color;
+    transition: color 0.4s;
+
+    &:hover {
+      color: $highlight;
+    }
+  }
+}
