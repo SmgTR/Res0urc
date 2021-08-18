@@ -32,7 +32,7 @@ const UsersState = (props) => {
 
       dispatch({ type: GET_USER, payload: res.data });
 
-      setThemeColor(res.data.data.data.theme);
+      res ? setThemeColor(res.data.data.data.theme) : setThemeColor('0078a8');
     } catch (err) {
       console.log(err);
     }
@@ -54,7 +54,7 @@ const UsersState = (props) => {
   const removeUsersBookmarks = async (listId) => {
     try {
       const data = state.user.data.data.savedLists;
-      console.log(data);
+
       for (let i = 0; i < data.length; i++) {
         if (data[i].listId === listId) {
           data.splice(i, 1);
@@ -95,7 +95,6 @@ const UsersState = (props) => {
       '--theme',
       `#${color || state.user.data.data.theme}`
     );
-    console.log(state.user.data.data.theme);
   };
 
   const updateTheme = async (color) => {
@@ -103,6 +102,7 @@ const UsersState = (props) => {
       const res = await axios.patch(`/api/v1/users/updateMe`, {
         theme: color,
       });
+      console.log(res);
       setThemeColor(color);
     } catch (err) {
       console.log(err);
@@ -126,7 +126,7 @@ const UsersState = (props) => {
         password: data.new,
         passwordConfirm: data.confirm,
       });
-      console.log(res);
+
       setSuccessMsg('Password changed successfully.');
     } catch (err) {
       const error = err.response.data;

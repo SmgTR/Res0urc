@@ -66,7 +66,6 @@ const UserSettings = ({ user }) => {
       successValid(e);
     } else if (e.target.value === '') {
       e.target.classList = '';
-      console.log(e.target.classList);
     } else if (e.target.name !== 'current') {
       errorValid(e);
       setErrorMsg(

@@ -49,7 +49,7 @@ const Slide = ({ hide }) => {
   const arrowClick = (e, checkDot) => {
     let numb = 0;
     resetDot(e);
-    console.log(tutorialCard.number);
+
     if (
       e.target.classList.contains('fa-chevron-left') &&
       !tutorialCard.number == 0
@@ -88,7 +88,6 @@ const Slide = ({ hide }) => {
     for (let i = 0; i < parent.length; i++) {
       if (+parent[i].dataset.slide === num) {
         parent[i].classList.add('active__dot');
-        console.log(parent[i]);
       }
     }
   };

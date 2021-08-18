@@ -52,7 +52,6 @@ const WelcomeRegisterForm = ({ setRegister }) => {
 
     if (target.name === 'password') {
       if (target.value.length >= 8) {
-        console.log(target.valu);
         target.classList.add('success__border');
         target.classList.remove('error__border');
       } else {

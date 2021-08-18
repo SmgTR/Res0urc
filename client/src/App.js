@@ -21,7 +21,6 @@ function App() {
   const tutorial = localStorage.getItem('tutorial');
 
   useEffect(() => {
-    console.log(showTutorial, tutorial);
     if (tutorial === 'true') {
       setShowTutorial(true);
     }

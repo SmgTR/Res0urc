@@ -75,14 +75,14 @@ const Nav = () => {
 
   const list = resources.data.data;
 
-  const userBookmarks = user.data.data.savedLists || null;
+  const userBookmarks = user.data.data.savedLists || [];
 
   const onClick = (e) => {
     getResources();
     const element = list.filter((el) => {
       return el.id === e.target.getAttribute('data-id');
     });
-    console.log(element);
+
     setShowLinks(true);
     setCurrent(element);
   };

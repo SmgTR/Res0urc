@@ -157,11 +157,7 @@ const Home = () => {
         </h2>
 
         <div className='edit__link'>
-          {selectedOptions ? (
-            <LinkEditDelete add={addListItemForm} edit={setUpdateListItem} />
-          ) : (
-            ''
-          )}
+          {selectedOptions ? <LinkEditDelete add={addListItemForm} /> : ''}
         </div>
 
         <RoundButton text='New session' openSelected={openAll} />

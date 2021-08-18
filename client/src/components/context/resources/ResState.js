@@ -105,6 +105,14 @@ const ResState = (props) => {
     }
   };
 
+  const removeListItem = async (links) => {
+    await axios.patch(`/api/v1/resources/${state.current[0]._id}`, {
+      links,
+    });
+
+    getOnePublic(state.current[0].id);
+    console.log(state.current[0]);
+  };
   const setUpdateListItem = (show) => {
     dispatch({ type: UPDATE_ITEM, payload: show });
   };
@@ -318,7 +326,6 @@ const ResState = (props) => {
   const clearSelected = () => {
     if (state.selected.length > 0) {
       state.selected = [];
-      console.log(state.selected);
     }
     dispatch({ type: CLEAR_SELECT });
   };
@@ -408,6 +415,7 @@ const ResState = (props) => {
         showSelectedOptions,
         clearSelected,
         setUpdateListItem,
+        removeListItem,
       }}
     >
       {props.children}
