@@ -14,3 +14,4 @@ https://res0urc.herokuapp.com/
 2. Chrome extension(login works)
 4. RWD
 5. React code refactor && bugs fix.
+6. Custom Hook for form logic.
