@@ -5,9 +5,9 @@ const LinksCollections = ({ collections, get }) => {
   if (collections.length > 0) {
     return (
       <Fragment>
-        {collections.map(collection => {
+        {collections.map((collection) => {
           return (
-            <div onClick={() => get(collection._id)}>
+            <div key={collection._id} onClick={() => get(collection._id)}>
               <LinksCollectionItem collection={collection} />
             </div>
           );
