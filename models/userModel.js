@@ -36,11 +36,6 @@ const userSchema = new mongoose.Schema(
         listId: String,
       },
     ],
-    theme: {
-      type: String,
-      default: '0078a8',
-      required: true,
-    },
     passwordConfirm: {
       type: String,
       required: [true, 'Please confirm your password'],
@@ -51,6 +46,11 @@ const userSchema = new mongoose.Schema(
         },
         message: 'Passwords are not the same!',
       },
+    },
+    theme: {
+      type: String,
+      default: '0078a8',
+      required: true,
     },
     passwordChangedAt: Date,
     passwordResetToken: String,

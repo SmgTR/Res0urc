@@ -6,26 +6,21 @@ const resourceSchema = new mongoose.Schema(
       type: String,
       required: [true, 'A list must have a name'],
       trim: true,
-      maxlength: [
-        20,
-        'A collection name must have less or equal than 30 characters',
-      ],
-      minlength: [
-        4,
-        'A collection name must have more or equal than 4 characters',
-      ],
+      maxlength: [20, 'A list name must have less or equal than 20 characters'],
+      minlength: [4, 'A tour name must have more or equal than 10 characters'],
     },
     description: {
       type: String,
       required: [true, 'A list must have a description'],
       trim: true,
       maxLength: [140, 'A list must have less or equal than 160 characters.'],
-      default: 'A',
+      default:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse accumsan sagittis tellus, ac molestie metus dignissim eu. Phasellus ac.',
     },
     cover: {
       type: String,
       default: '../assets/defaultCover.png',
-      required: [true, 'A list must have a `cover'],
+      required: [true, 'A list must have cover'],
     },
     public: {
       type: Boolean,
@@ -46,8 +41,6 @@ const resourceSchema = new mongoose.Schema(
       {
         type: mongoose.Schema.ObjectId,
         ref: 'User',
-        required: true,
-        unique: true,
         default: [],
       },
     ],
