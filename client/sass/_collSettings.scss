@@ -1,0 +1,73 @@
+.collSettings {
+  margin-top: 2rem;
+
+  width: 80%;
+
+  & .backArrow {
+    @include respond(phone) {
+      margin-left: 2rem;
+    }
+  }
+}
+
+.change__settings {
+  margin-top: 6rem;
+  width: 600px;
+
+  @include respond(phone) {
+    width: 100%;
+    margin-left: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  & input {
+    margin-top: 1.2rem;
+  }
+
+  & label {
+    font-size: 2rem;
+  }
+
+  & .preview {
+    @include respond(phone) {
+      width: 100%;
+    }
+  }
+}
+
+.confirm {
+  position: fixed;
+  background-color: rgba($high_dark, 0.9);
+
+  top: 0;
+  left: 0;
+  min-height: 100%;
+  width: 100%;
+  z-index: 1100;
+
+  &__body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 500px;
+    margin: auto;
+
+    @include respond(phone) {
+      width: 100%;
+      margin-top: -4rem;
+    }
+  }
+
+  &__manage {
+    width: 500px;
+    border-radius: 15px;
+    padding: 4rem;
+    background-color: darken($high_dark, 5%);
+
+    @include respond(phone) {
+      width: 80%;
+    }
+  }
+}

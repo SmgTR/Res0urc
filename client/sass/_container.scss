@@ -1,0 +1,193 @@
+.container {
+  width: 95%;
+  min-height: 90vh;
+  margin: 0 auto;
+  border-radius: 15px;
+  // background-color: $background-th;
+  background: linear-gradient(
+    rgba(75, 75, 75, 1) 19%,
+    rgba(75, 75, 75, 0.4) 100%
+  );
+  margin-bottom: 6rem;
+  display: flex;
+  position: relative;
+
+  @include respond(tab-land) {
+    display: block;
+  }
+
+  @include respond(phone) {
+    display: block;
+    width: 100%;
+  }
+}
+
+.content {
+  width: 100%;
+}
+
+.nav {
+  text-align: left;
+  width: fit-content;
+
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+
+  transition: opacity 0.4s;
+
+  background: linear-gradient(
+    rgba($background-nav, 0.8) 19%,
+    rgba(0, 21, 36, 0.4) 94%
+  );
+  padding: 6rem 4rem;
+
+  @include respond(tab-land) {
+    opacity: 0;
+    visibility: hidden;
+    width: 100%;
+    padding: 4rem 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    z-index: 1000;
+    border-radius: 15px;
+    background: linear-gradient(
+      rgba($background-nav, 1) 19%,
+      rgba(0, 21, 36, 1) 94%
+    );
+    min-height: 100%;
+  }
+
+  @include respond(phone) {
+    width: 100%;
+    padding: 4rem 0;
+    text-align: center;
+  }
+
+  & h1 {
+    font-size: 3.2rem;
+    margin-bottom: 2rem;
+
+    @include respond(phone) {
+      text-align: center;
+    }
+
+    &:last-of-type {
+      display: flex;
+      align-items: flex-end;
+      margin-top: 4rem;
+
+      @include respond(tab-land) {
+        align-items: center;
+        justify-content: center;
+      }
+
+      @include respond(phone) {
+        align-items: center;
+        justify-content: center;
+        margin: 4rem auto;
+        width: 100%;
+      }
+    }
+  }
+
+  & p {
+    font-size: 1.8rem;
+    cursor: pointer;
+
+    @include respond(tab-land) {
+      width: max-content;
+    }
+
+    &:hover {
+      color: $highlight;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 1.4rem;
+    }
+    & i {
+      font-size: 1.4rem;
+      margin-left: 0.8rem;
+    }
+  }
+
+  & ul {
+    list-style: none;
+    font-size: 1.8rem;
+
+    & li {
+      cursor: pointer;
+
+      &:hover {
+        color: $highlight;
+      }
+    }
+
+    & li:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+.new__res {
+  font-size: 1.2rem;
+  margin-left: 2rem;
+  border: 1px solid $font-primary-color;
+  padding: 1rem;
+  border-radius: 5px;
+
+  &:hover {
+    color: $highlight;
+    cursor: pointer;
+  }
+}
+
+.small__close {
+  position: absolute;
+  display: none;
+  top: 35px;
+  right: 30px;
+  z-index: 1000;
+  cursor: pointer;
+  transition: all 0.4s;
+  width: 50px;
+  visibility: hidden;
+  opacity: 0;
+  height: 50px;
+
+  @include respond(tab-land) {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &:hover {
+    color: $highlight;
+  }
+}
+
+.small__show {
+  @include respond(tab-land) {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.mobile__menu {
+  display: none;
+  width: max-content;
+  @include respond(tab-land) {
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+  }
+
+  & p {
+    margin-left: 1rem;
+    font-size: 1.4rem;
+    margin-top: 0.4rem;
+  }
+}
