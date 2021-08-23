@@ -1,4 +1,4 @@
-# Res0urcApp & Chrome Extension.
+# Res0urc App & Chrome Extension.
 
 Build with react context.
 
