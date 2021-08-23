@@ -1,4 +1,4 @@
-# Res0urc MERN stack App.
+# Res0urcApp & Chrome Extension.
 
 Build with react context.
 
