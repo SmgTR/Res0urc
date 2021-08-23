@@ -1,7 +1,9 @@
-# Res0urc (in progress)
+# Res0urc MERN stack App.
+
+Build with react context.
 
 
-An app that lets users create, manage, and share collections of links.
+It's an app that lets users create, manage, and share collections of links.
 
 The project is based on MERN stack.
 
@@ -9,9 +11,3 @@ Live:
 https://res0urc.herokuapp.com/
 
 
-//* TODO
-1. Sharing logic.
-2. Chrome extension(login works)
-4. RWD
-5. React code refactor && bugs fix.
-6. Custom Hook for form logic.
