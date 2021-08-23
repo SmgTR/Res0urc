@@ -1,0 +1,19 @@
+.footer {
+  margin: 6rem 0 1rem 0;
+  height: 150px;
+  background-color: $background-th;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  & h4 {
+    font-size: 1.4rem;
+    padding: 1rem 0;
+  }
+  & a,
+  a:visited,
+  a:link {
+    color: $highlight;
+  }
+}

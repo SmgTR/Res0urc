@@ -20,3 +20,16 @@ body {
   font-family: 'Roboto', sans-serif;
   color: $font-primary-color;
 }
+
+.container {
+  min-height: 90vh;
+}
+
+main {
+  height: 100%;
+}
+
+.container-pd {
+  margin-top: 4rem;
+  padding: 2rem 4rem;
+}

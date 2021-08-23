@@ -22,6 +22,38 @@
   color: $error;
 }
 
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.back {
+  margin-bottom: 1rem;
+  cursor: pointer;
+
+  &:hover {
+    color: $highlight;
+  }
+
+  &__title {
+    font-size: 2rem;
+    margin-left: 1rem;
+  }
+
+  &__arrow {
+    font-size: 1.8rem;
+  }
+}
+
+.selected {
+  border: 2px solid $highlight;
+}
+
+.empty {
+  font-size: 2rem;
+  margin-top: 2rem;
+}
+
 .button-y-animation {
   transition: transform 0.4s;
   &:hover {

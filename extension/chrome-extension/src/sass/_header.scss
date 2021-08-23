@@ -25,7 +25,14 @@
     height: 50px;
   }
 }
+.logout {
+  cursor: pointer;
+  transition: 0.4s all;
 
+  &:hover {
+    color: $highlight;
+  }
+}
 .logo {
   font-size: 3.2rem;
 }

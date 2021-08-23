@@ -5,6 +5,11 @@
   overflow: hidden;
   text-align: center;
 
+  &:hover {
+    cursor: pointer;
+    border: 2px solid $highlight;
+  }
+
   &__cover {
     width: 100%;
     height: 70%;

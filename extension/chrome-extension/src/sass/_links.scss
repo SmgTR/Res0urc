@@ -1,0 +1,118 @@
+.links {
+  height: 100%;
+  width: 80%;
+
+  &__top {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.btn-container {
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+
+  & div:not(:last-of-type) {
+    margin-right: 4rem;
+  }
+}
+
+.btn-rounded {
+  border-radius: 15px;
+}
+
+.btn-open {
+  background-color: $background-secondary;
+  padding: 1rem;
+  transition: transform 0.4s;
+
+  &:hover {
+    transform: translateY(-2px);
+    cursor: pointer;
+  }
+}
+
+.link__title {
+  font-size: 3.2rem;
+}
+
+.author__info {
+  font-size: 2rem;
+  margin: 1.6rem 0;
+  & img {
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+  }
+}
+
+.link__item {
+  width: 350px;
+  background-color: $background-th;
+  border-radius: 15px;
+  overflow: hidden;
+  height: 350px;
+  position: relative;
+
+  &:hover {
+    border: 2px solid $highlight-light;
+  }
+
+  & img {
+    width: 100%;
+  }
+  & h1 {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 280px;
+    padding: 0 1rem;
+    margin-top: 1.2rem;
+    margin-bottom: 0.8rem;
+
+    cursor: pointer;
+
+    font-size: 1.8rem;
+  }
+  & p {
+    overflow: hidden;
+
+    cursor: pointer;
+    font-size: 1.4rem;
+    text-overflow: ellipsis;
+    width: 100%;
+    height: 64px;
+    padding: 0 1rem;
+    margin: 0 auto;
+  }
+}
+
+.link-url {
+  width: 100%;
+  font-size: 1.6rem;
+  text-align: center;
+  position: absolute;
+  top: 93%;
+  padding: 0.4rem 0;
+  z-index: 1000;
+
+  background-color: $highlight;
+  overflow: hidden;
+
+  & a,
+  a:visited,
+  a:link {
+    text-decoration: none;
+    color: $font-primary-color;
+  }
+}
+
+.links-grid {
+  width: 100%;
+  margin-top: 4rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-gap: 2rem;
+}

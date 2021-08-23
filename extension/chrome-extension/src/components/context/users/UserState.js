@@ -49,6 +49,12 @@ const UserState = (props) => {
     }
   };
 
+  const logout = () => {
+    document.cookie = 'jwt=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    localStorage.clear();
+    window.location.reload();
+  };
+
   const getUser = async () => {
     setAuthToken(localStorage.token);
 
@@ -69,6 +75,7 @@ const UserState = (props) => {
         user: state.user,
         setMsg: state.setMsg,
         loginUser,
+        logout,
         getUser,
         msgHandler,
       }}

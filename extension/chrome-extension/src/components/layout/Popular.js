@@ -1,6 +1,6 @@
-import React, { useContext, useEffect, useCallback } from 'react';
+import React, { useContext, useEffect } from 'react';
 import ResContext from '../context/resources/resContext';
-import PopularItem from './PopularItem';
+import ResItem from './ResItem';
 
 const Popular = () => {
   const resContext = useContext(ResContext);
@@ -16,10 +16,10 @@ const Popular = () => {
   );
 
   return (
-    <div className='popular'>
+    <div className='popular container-pd'>
       <h1 className='popular__title'>Recently popular:</h1>
 
-      <PopularItem popular={sorted} />
+      <ResItem res={sorted} />
     </div>
   );
 };
